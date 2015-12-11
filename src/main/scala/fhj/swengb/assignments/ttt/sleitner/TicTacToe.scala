@@ -1,4 +1,4 @@
-package fhj.swengb.assignments.ttt.rladstaetter
+package fhj.swengb.assignments.ttt.sleitner
 
 import scala.collection.Set
 
@@ -61,9 +61,10 @@ object TicTacToe {
 
   /**
     * creates an empty tic tac toe game
+    *
     * @return
     */
-  def apply(): TicTacToe = ???
+  def apply(): TicTacToe = TicTacToe()
 
   /**
     * For a given tic tac toe game, this function applies all moves to the game.
@@ -77,6 +78,7 @@ object TicTacToe {
 
   /**
     * creates all possible games.
+    *
     * @return
     */
   def mkGames(): Map[Seq[TMove], TicTacToe] = ???
@@ -104,36 +106,48 @@ case class TicTacToe(moveHistory: Map[TMove, Player],
     * | x | o | o |
     * |---|---|---|
     *
-    *
     * @return
     */
-  def asString(): String = ???
+  def asString(): String = {
+    val tl = if (moveHistory.contains(TopLeft)) " x " else "   "
+    val tc = if (moveHistory.contains(TopCenter)) " x " else "   "
+    val tr = if (moveHistory.contains(TopRight)) " x " else "   "
+    val ml = if (moveHistory.contains(MiddleLeft)) " x " else "   "
+    val mc = if (moveHistory.contains(MiddleCenter)) " x " else "   "
+    val mr = if (moveHistory.contains(MiddleRight)) " x " else "   "
+    val bl = if (moveHistory.contains(BottomLeft)) " x " else "   "
+    val bc = if (moveHistory.contains(BottomCenter)) " x " else "   "
+    val br = if (moveHistory.contains(BottomRight)) " x " else "   "
+
+
+    "|---|---|---|\n|"+tl+"|"+tc+"|"+tr+"|\n|---|---|---|\n|"+ml+"|"+mc+"|"+mr+"|\n|---|---|---|\n|"+bl+"|"+bc+"|"+br+"|\n|---|---|---|"
+  }
 
   /**
     * is true if the game is over.
     *
     * The game is over if either of a player wins or there is a draw.
     */
-  val gameOver : Boolean = ???
+  //val gameOver : Boolean = ???
 
   /**
     * the moves which are still to be played on this tic tac toe.
     */
-  val remainingMoves: Set[TMove] = ???
+  val remainingMoves: Set[TMove] = Set(TopLeft,TopCenter,TopRight,MiddleLeft,MiddleCenter,MiddleRight,BottomLeft,BottomCenter,BottomRight)
 
   /**
     * given a tic tac toe game, this function returns all
     * games which can be derived by making the next turn. that means one of the
     * possible turns is taken and added to the set.
     */
-  lazy val nextGames: Set[TicTacToe] = ???
+  //lazy val nextGames: Set[TicTacToe] = ???
 
   /**
     * Either there is no winner, or PlayerA or PlayerB won the game.
     *
     * The set of moves contains all moves which contributed to the result.
     */
-  def winner: Option[(Player, Set[TMove])] = ???
+  //def winner: Option[(Player, Set[TMove])] = ???
 
   /**
     * returns a copy of the current game, but with the move applied to the tic tac toe game.
@@ -142,8 +156,6 @@ case class TicTacToe(moveHistory: Map[TMove, Player],
     * @param player the player
     * @return
     */
-  def turn(p: TMove, player: Player): TicTacToe = ???
+  //def turn(p: TMove, player: Player): TicTacToe =
 
 }
-
-
