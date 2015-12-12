@@ -64,7 +64,7 @@ object TicTacToe {
     *
     * @return
     */
-  def apply(): TicTacToe = TicTacToe()
+  def apply(): TicTacToe = TicTacToe(Map())
 
   /**
     * For a given tic tac toe game, this function applies all moves to the game.
@@ -109,18 +109,20 @@ case class TicTacToe(moveHistory: Map[TMove, Player],
     * @return
     */
   def asString(): String = {
-    val tl = if (moveHistory.contains(TopLeft)) " x " else "   "
-    val tc = if (moveHistory.contains(TopCenter)) " x " else "   "
-    val tr = if (moveHistory.contains(TopRight)) " x " else "   "
-    val ml = if (moveHistory.contains(MiddleLeft)) " x " else "   "
-    val mc = if (moveHistory.contains(MiddleCenter)) " x " else "   "
-    val mr = if (moveHistory.contains(MiddleRight)) " x " else "   "
-    val bl = if (moveHistory.contains(BottomLeft)) " x " else "   "
-    val bc = if (moveHistory.contains(BottomCenter)) " x " else "   "
-    val br = if (moveHistory.contains(BottomRight)) " x " else "   "
 
+    def setOrNot(m: TMove): String = moveHistory match {
+      case not if !moveHistory.contains(m) => "   "
+      case x if x.apply(m)==PlayerA => " X "
+      case o if o.apply(m)==PlayerB => " O "
+    }
 
-    "|---|---|---|\n|"+tl+"|"+tc+"|"+tr+"|\n|---|---|---|\n|"+ml+"|"+mc+"|"+mr+"|\n|---|---|---|\n|"+bl+"|"+bc+"|"+br+"|\n|---|---|---|"
+    "|---|---|---|\n" +
+    "|"+setOrNot(TopLeft)+"|"+setOrNot(TopCenter)+"|"+setOrNot(TopRight)+"|\n" +
+    "|---|---|---|\n" +
+    "|"+setOrNot(MiddleLeft)+"|"+setOrNot(MiddleCenter)+"|"+setOrNot(MiddleRight)+"|\n" +
+    "|---|---|---|\n" +
+    "|"+setOrNot(BottomLeft)+"|"+setOrNot(BottomCenter)+"|"+setOrNot(BottomRight)+"|\n" +
+    "|---|---|---|"
   }
 
   /**
@@ -128,34 +130,63 @@ case class TicTacToe(moveHistory: Map[TMove, Player],
     *
     * The game is over if either of a player wins or there is a draw.
     */
-  //val gameOver : Boolean = ???
+  val gameOver : Boolean = if(winner != None) true else false
 
   /**
     * the moves which are still to be played on this tic tac toe.
     */
-  val remainingMoves: Set[TMove] = Set(TopLeft,TopCenter,TopRight,MiddleLeft,MiddleCenter,MiddleRight,BottomLeft,BottomCenter,BottomRight)
+  val remainingMoves: Set[TMove] = {
+    val allMoves:Set[TMove] = Set(TopLeft,TopCenter,TopRight,MiddleLeft,MiddleCenter,MiddleRight,BottomLeft,BottomCenter,BottomRight)
+    allMoves diff moveHistory.keySet
+  }
 
   /**
     * given a tic tac toe game, this function returns all
     * games which can be derived by making the next turn. that means one of the
     * possible turns is taken and added to the set.
     */
-  //lazy val nextGames: Set[TicTacToe] = ???
+  lazy val nextGames: Set[TicTacToe] = ???
 
   /**
     * Either there is no winner, or PlayerA or PlayerB won the game.
     *
     * The set of moves contains all moves which contributed to the result.
     */
-  //def winner: Option[(Player, Set[TMove])] = ???
+  def winner: Option[(Player, Set[TMove])] = {
+
+    def checkTicTacToe(pMoves: Set[TMove]): Boolean = pMoves match {
+      case r1 if r1.contains(TopLeft) && r1.contains(TopCenter) && r1.contains(TopRight) => true
+      case r2 if r2.contains(MiddleLeft) && r2.contains(MiddleCenter) && r2.contains(MiddleRight) => true
+      case r3 if r3.contains(BottomLeft) && r3.contains(BottomCenter) && r3.contains(BottomRight) => true
+      case c1 if c1.contains(TopLeft) && c1.contains(MiddleLeft) && c1.contains(BottomLeft) => true
+      case c2 if c2.contains(TopCenter) && c2.contains(MiddleCenter) && c2.contains(BottomCenter) => true
+      case c3 if c3.contains(TopRight) && c3.contains(MiddleRight) && c3.contains(BottomRight) => true
+      case d1 if d1.contains(TopLeft) && d1.contains(MiddleCenter) && d1.contains(BottomRight) => true
+      case d2 if d2.contains(TopRight) && d2.contains(MiddleCenter) && d2.contains(BottomLeft) => true
+      case _ => false
+    }
+    val Amoves = moveHistory.filter(_._2==PlayerA).keySet
+    val Bmoves = moveHistory.filter(_._2==PlayerB).keySet
+
+    if(checkTicTacToe(Amoves)) Some(PlayerA,Amoves)
+    else if(checkTicTacToe(Bmoves)) Some(PlayerB,Bmoves)
+    else None
+
+  }
 
   /**
     * returns a copy of the current game, but with the move applied to the tic tac toe game.
     *
-    * @param move to be played
+    * @param p to be played
     * @param player the player
     * @return
     */
-  //def turn(p: TMove, player: Player): TicTacToe =
+  def turn(p: TMove, player: Player): TicTacToe = {
+    if(player==PlayerA) {
+      TicTacToe(moveHistory.updated(p,player),PlayerB)
+    } else {
+      TicTacToe(moveHistory.updated(p,player),PlayerA)
+    }
+  }
 
 }
