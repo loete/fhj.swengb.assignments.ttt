@@ -17,6 +17,7 @@ object TicTacToeApp{
       BottomLeft -> PlayerB,
       BottomCenter -> PlayerA,
       BottomRight -> PlayerB
+
     )
     println(TicTacToe.apply(mh).asString())
 
