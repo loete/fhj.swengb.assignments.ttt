@@ -57,6 +57,8 @@ case object PlayerA extends Player
 
 case object PlayerB extends Player
 
+case object Draw  extends Player
+
 object TicTacToe {
 
   /**
@@ -170,6 +172,7 @@ case class TicTacToe(moveHistory: Map[TMove, Player],
 
     if(checkTicTacToe(Amoves)) Some(PlayerA,Amoves)
     else if(checkTicTacToe(Bmoves)) Some(PlayerB,Bmoves)
+    else if(moveHistory.size == 9) Some(Draw, moveHistory.keySet)
     else None
 
   }
