@@ -7,10 +7,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="180.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fhj.swengb.assignments.ttt.sleitner.TicTacToeController">
+<BorderPane maxHeight="450.0" maxWidth="400.0" minHeight="450.0" minWidth="400.0" prefHeight="450.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fhj.swengb.assignments.ttt.sleitner.TicTacToeController">
    <center>
-      <GridPane maxHeight="150.0" maxWidth="150.0" prefHeight="150.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+      <GridPane maxHeight="240.0" maxWidth="240.0" minHeight="240.0" minWidth="240.0" prefHeight="240.0" prefWidth="240.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
@@ -22,78 +21,153 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="BtnTopCenter" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#onTopCenter" GridPane.columnIndex="1">
+            <Button fx:id="BtnTopCenter" maxHeight="80.0" maxWidth="80.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#onTopCenter" prefHeight="80.0" prefWidth="80.0" GridPane.columnIndex="1">
                <font>
-                  <Font name="System Bold" size="22.0" />
+                  <Font name="System Bold" size="36.0" />
                </font>
             </Button>
-            <Button fx:id="BtnTopLeft" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#onTopLeft">
+            <Button fx:id="BtnTopLeft" maxHeight="80.0" maxWidth="80.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#onTopLeft" prefHeight="80.0" prefWidth="80.0">
                <font>
-                  <Font name="System Bold" size="22.0" />
+                  <Font name="System Bold" size="36.0" />
                </font>
             </Button>
-            <Button fx:id="BtnMiddleLeft" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#onMiddleLeft" GridPane.rowIndex="1">
+            <Button fx:id="BtnMiddleLeft" maxHeight="80.0" maxWidth="80.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#onMiddleLeft" prefHeight="80.0" prefWidth="80.0" GridPane.rowIndex="1">
                <font>
-                  <Font name="System Bold" size="22.0" />
+                  <Font name="System Bold" size="36.0" />
                </font>
             </Button>
-            <Button fx:id="BtnMiddleCenter" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#onMiddleCenter" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="BtnMiddleCenter" maxHeight="80.0" maxWidth="80.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#onMiddleCenter" prefHeight="80.0" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
-                  <Font name="System Bold" size="22.0" />
+                  <Font name="System Bold" size="36.0" />
                </font>
             </Button>
-            <Button fx:id="BtnBottomLeft" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#onBottomLeft" GridPane.rowIndex="2">
+            <Button fx:id="BtnBottomLeft" maxHeight="80.0" maxWidth="80.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#onBottomLeft" prefHeight="80.0" prefWidth="80.0" GridPane.rowIndex="2">
                <font>
-                  <Font name="System Bold" size="22.0" />
+                  <Font name="System Bold" size="36.0" />
                </font>
             </Button>
-            <Button fx:id="BtnBottomCenter" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#onBottomCenter" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="BtnBottomCenter" maxHeight="80.0" maxWidth="80.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#onBottomCenter" prefHeight="80.0" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
-                  <Font name="System Bold" size="22.0" />
+                  <Font name="System Bold" size="36.0" />
                </font>
             </Button>
-            <Button fx:id="BtnTopRight" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#onTopRight" GridPane.columnIndex="2">
+            <Button fx:id="BtnTopRight" maxHeight="80.0" maxWidth="80.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#onTopRight" prefHeight="80.0" prefWidth="80.0" GridPane.columnIndex="2">
                <font>
-                  <Font name="System Bold" size="22.0" />
+                  <Font name="System Bold" size="36.0" />
                </font>
             </Button>
-            <Button fx:id="BtnMiddleRight" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#onMiddleRight" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="BtnMiddleRight" maxHeight="80.0" maxWidth="80.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#onMiddleRight" prefHeight="80.0" prefWidth="80.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
-                  <Font name="System Bold" size="22.0" />
+                  <Font name="System Bold" size="36.0" />
                </font>
             </Button>
-            <Button fx:id="BtnBottomRight" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#onBottomRight" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Button fx:id="BtnBottomRight" maxHeight="80.0" maxWidth="80.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#onBottomRight" prefHeight="80.0" prefWidth="80.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
-                  <Font name="System Bold" size="22.0" />
+                  <Font name="System Bold" size="36.0" />
                </font>
             </Button>
          </children>
       </GridPane>
    </center>
    <top>
-      <Label text="TICTACTOE" BorderPane.alignment="CENTER">
+      <Label alignment="CENTER" text="TICTACTOE" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
+         <BorderPane.margin>
+            <Insets top="15.0" />
+         </BorderPane.margin>
       </Label>
    </top>
    <bottom>
-      <GridPane prefHeight="57.0" prefWidth="180.0" BorderPane.alignment="CENTER">
+      <GridPane prefHeight="117.0" prefWidth="280.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="BtnNewGame" mnemonicParsing="false" onAction="#onNewGame" text="NEW GAME" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="BtnNewGame" maxHeight="30.0" maxWidth="120.0" minHeight="30.0" minWidth="120.0" mnemonicParsing="false" onAction="#onNewGame" prefHeight="30.0" prefWidth="120.0" text="NewGame - 2P" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Button>
+            <Label fx:id="LblInfo" text="LabelInfo" GridPane.halignment="CENTER" />
+            <Button fx:id="BtnNewGameCpu" maxHeight="30.0" maxWidth="120.0" minHeight="30.0" minWidth="120.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="NewGame - CPU" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Label fx:id="LblInfo" text="Label" GridPane.halignment="CENTER" />
+            <Label fx:id="LblMoves" alignment="CENTER" text="LabelMoves" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
          </children>
       </GridPane>
    </bottom>
+   <left>
+      <GridPane maxHeight="240.0" maxWidth="80.0" minHeight="240.0" minWidth="80.0" prefHeight="240.0" prefWidth="80.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Wins X" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <Label fx:id="LblX" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="10.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+   </left>
+   <right>
+      <GridPane maxHeight="240.0" maxWidth="80.0" minHeight="240.0" minWidth="80.0" prefHeight="240.0" prefWidth="80.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Wins O" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="LblO" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="10.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+   </right>
 </BorderPane>

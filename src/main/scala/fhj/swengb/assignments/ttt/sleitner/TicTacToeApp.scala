@@ -72,6 +72,8 @@ class TicTacToeApp extends Application {
 
 class TicTacToeController extends Initializable {
   var ttt = TicTacToe()
+  var xWins = 0
+  var oWins = 0
 
   @FXML var BtnTopLeft: Button = _
   @FXML var BtnTopCenter: Button = _
@@ -84,10 +86,18 @@ class TicTacToeController extends Initializable {
   @FXML var BtnBottomRight: Button = _
 
   @FXML var LblInfo: Label = _
+  @FXML var LblMoves: Label = _
+  @FXML var LblX: Label = _
+  @FXML var LblO: Label = _
+
   @FXML var BtnNewGame: Button = _
+  @FXML var BtnNewGameCpu: Button = _
 
   override def initialize(location: URL, resources: ResourceBundle): Unit = {
     LblInfo.setText("Player X's move")
+    LblMoves.setText("")
+    LblX.setText("0")
+    LblO.setText("0")
   }
 
   def setMove(btn: Button, m: TMove): Unit = {
@@ -98,7 +108,17 @@ class TicTacToeController extends Initializable {
       ttt.winner match {
         case None => if(ttt.nextPlayer == PlayerB) LblInfo.setText("Player O's move") else LblInfo.setText("Player X's move")
         case Some(draw) if draw._1 == Draw => LblInfo.setText("Draw - GameOver")
-        case Some(player) => if(player._1 == PlayerA) LblInfo.setText("X wins") else LblInfo.setText("O wins")
+        case Some(player) => if(player._1 == PlayerA) {
+          LblInfo.setText("X wins")
+          LblMoves.setText(ttt.moveHistory.filter(_._2 == PlayerA).keySet.mkString(","))
+          xWins = xWins + 1
+          LblX.setText(xWins.toString)
+        } else {
+          LblInfo.setText("O wins")
+          LblMoves.setText(ttt.moveHistory.filter(_._2 == PlayerB).keySet.mkString(","))
+          oWins += 1
+          LblO.setText(oWins.toString)
+        }
       }
     }
   }
@@ -107,6 +127,7 @@ class TicTacToeController extends Initializable {
     ttt = TicTacToe(Map(), PlayerA)
     val btns = Seq(BtnTopLeft, BtnTopCenter, BtnTopRight, BtnMiddleLeft, BtnMiddleCenter, BtnMiddleRight, BtnBottomLeft, BtnBottomCenter, BtnBottomRight)
     for(btn <- btns) btn.setText("")
+    LblMoves.setText("")
   }
 
   @FXML def onTopLeft(): Unit = setMove(BtnTopLeft, TopLeft)
